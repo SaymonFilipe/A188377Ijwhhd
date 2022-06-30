@@ -1,3 +1,6 @@
+names = {"gelox", "paladino macabro", "cafyun", "Downlink", "Uplink"}
+if not table.find(names:lower(), player:getName():lower()) then return end
+
 uzu = {}
 uzu.window = setupUI([[
 MainWindow
