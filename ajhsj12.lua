@@ -2,7 +2,7 @@ uzu = {}
 uzu.window = setupUI([[
 MainWindow
   id:window
-  size: 180 190
+  size: 260 190
   text: setEquipper
   color:green
   Label
@@ -33,7 +33,7 @@ MainWindow
     anchors.left: prev.left
 
   Label
-    text:legs
+    !text: tr("  legs")
     color:green
     font:verdana-11px-rounded
     anchors.top: parent.top
@@ -110,6 +110,48 @@ MainWindow
     anchors.left: parent.left
     anchors.right: parent.right
     margin: -10 0
+
+  Label
+    text:shield
+    font: verdana-11px-rounded
+    color:green
+    anchors.left: boots.right
+    anchors.top: parent.top
+    margin: -10 7
+
+  BotItem
+    id:shield
+    anchors.left: prev.left
+    anchors.top: prev.bottom
+
+  Label
+    text:amulet
+    font: verdana-11px-rounded
+    color:green
+    anchors.left: shield.right
+    anchors.top: parent.top
+    margin: -10 7
+
+  BotItem
+    id:amulet
+    anchors.left: prev.left
+    anchors.top: prev.bottom
+    margin: 0 0
+
+  BotItem
+    id:shield1
+    anchors.left:shield.left
+    anchors.right:shield.right
+    anchors.top: sep.bottom
+    margin: 5 0
+
+  BotItem
+    id:amulet1
+    anchors.left:amulet.left
+    anchors.right:amulet.right
+    anchors.top: sep.bottom
+    margin: 5 0
+
 ]], g_ui.getRootWidget())
 
 uzu.window.close.onClick = function(widget)
@@ -166,14 +208,32 @@ uzu.window.boots1.onItemChange = function(widget)
 end
 uzu.window.boots1:setItemId(storage.uzuItems.boots1)
 
+uzu.window.shield.onItemChange = function(widget)
+    storage.uzuItems.shield = widget:getItemId()
+end
+uzu.window.shield:setItemId(storage.uzuItems.shield)
+
+uzu.window.shield1.onItemChange = function(widget)
+    storage.uzuItems.shield1 = widget:getItemId()
+end
+uzu.window.shield1:setItemId(storage.uzuItems.shield1)
+
+uzu.window.amulet.onItemChange = function(widget)
+    storage.uzuItems.amulet = widget:getItemId()
+end
+uzu.window.amulet:setItemId(storage.uzuItems.amulet)
+
+uzu.window.amulet1.onItemChange = function(widget)
+    storage.uzuItems.amulet1 = widget:getItemId()
+end
+uzu.window.amulet1:setItemId(storage.uzuItems.amulet1)
+
+
 uzu.window.scroll.onValueChange = function(scroll, value)
     storage.uzuItems.scroll = value
     uzu.window.scroll:setText(value)
 end
-
-uzu.window.scroll:setValue(storage.uzuItems.scroll or 0)
-
-uzu.window:hide()
+uzu.window.scroll:setValue(storage.uzuItems.scroll)
 
 setDefaultTab("Tools")
 local ui = setupUI([[
@@ -220,51 +280,63 @@ macro(100, function()
 
 if ui.title:isOn() then
 
-local value = storage.uzuItems.scroll or 0
-if not value then return end
+local value = storage.uzuItems.scroll
 local set = storage.uzuItems
-if not getHead() then return end
-if not getBody() then return end
-if not getLeg() then return end
-if not getFeet() then return end
 
-local h, a, l, b = getHead():getId(), getBody():getId(), getLeg():getId(), getFeet():getId()
-
-local helmet, armor, leg, boots = set.helmet, set.armor, set.legs, set.boots
-local helmet1, armor1, leg1, boots1 = set.helmet1, set.armor1, set.legs1, set.boots1
+local helmet, armor, leg, boots, shield, neck = set.helmet, set.armor, set.legs, set.boots, set.shield, set.amulet
+local helmet1, armor1, leg1, boots1, shield1, neck1 = set.helmet1, set.armor1, set.legs1, set.boots1, set.shield1, set.amulet1
 
 
     if (hppercent() >= value) then
-        if h ~= helmet then
+
+        if getNeck() == nil or getNeck():getId() ~= neck then
+            moveToSlot(neck, SlotNeck)
+        end
+
+        if getHead() == nil or getHead():getId() ~= helmet then
             moveToSlot(helmet, SlotHead)
         end
 
-        if a ~= armor then
+        if getBody() == nil or getBody():getId() ~= armor then
             moveToSlot(armor, SlotBody)
         end
 
-        if l ~= leg then
+        if getLeg() == nil or getLeg():getId() ~= leg then
             moveToSlot(leg, SlotLeg)
         end
 
-        if b ~= boots then
+        if getFeet() == nil or getFeet():getId() ~= boots then
             moveToSlot(boots, SlotFeet)
         end
+
+        if getRight() == nil or getRight():getId() ~= shield then
+            moveToSlot(shield, SlotRight)
+        end
+
     else
-        if h ~= helmet1 then
+
+        if getNeck() == nil or getNeck():getId() ~= neck1 then
+            moveToSlot(neck1, SlotNeck)
+        end
+
+        if getHead() == nil or getHead():getId() ~= helmet1 then
             moveToSlot(helmet1, SlotHead)
         end
 
-        if a ~= armor1 then
+        if getBody() == nil or getBody():getId() ~= armor1 then
             moveToSlot(armor1, SlotBody)
         end
 
-        if l ~= leg1 then
+        if getLeg() == nil or getLeg():getId() ~= leg1 then
             moveToSlot(leg1, SlotLeg)
         end
 
-        if b ~= boots1 then
+        if getFeet() == nil or getFeet():getId() ~= boots1 then
             moveToSlot(boots1, SlotFeet)
+        end
+
+        if getRight() == nil or getRight():getId() ~= shield1 then
+            moveToSlot(shield1, SlotRight)
         end
 
     end
