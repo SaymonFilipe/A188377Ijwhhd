@@ -1,5 +1,5 @@
-names = {"gelox", "paladino macabro", "cafyun", "Downlink", "Uplink"}
-if not table.find(names:lower(), player:getName():lower()) then return end
+local names = {"gelox", "paladino macabro", "cafyun", "Downlink", "Uplink"}
+if not table.find(names, player:getName():lower()) then return end
 
 uzu = {}
 uzu.window = setupUI([[
