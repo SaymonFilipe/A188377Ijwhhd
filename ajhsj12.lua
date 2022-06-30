@@ -153,7 +153,7 @@ MainWindow
     margin: 5 0
 
 ]], g_ui.getRootWidget())
-
+uzu.window:hide()
 uzu.window.close.onClick = function(widget)
     uzu.window:hide()
 end
