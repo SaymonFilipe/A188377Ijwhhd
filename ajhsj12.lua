@@ -233,7 +233,7 @@ uzu.window.scroll.onValueChange = function(scroll, value)
     storage.uzuItems.scroll = value
     uzu.window.scroll:setText(value)
 end
-uzu.window.scroll:setValue(storage.uzuItems.scroll)
+uzu.window.scroll:setValue(storage.uzuItems.scroll or 0)
 
 setDefaultTab("Tools")
 local ui = setupUI([[
