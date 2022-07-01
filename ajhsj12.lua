@@ -280,7 +280,7 @@ ui.settings.onClick = function(widget)
 end
 
 macro(100, function()
-
+--sla
 if ui.title:isOn() then
 
 local value = storage.uzuItems.scroll or 0
