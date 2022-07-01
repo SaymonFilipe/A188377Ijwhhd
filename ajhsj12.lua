@@ -1,4 +1,4 @@
-local names = {"ryan rukando char", "gelox ultimate", "gelox returns", "oliveira ed", "gelox", "paladino macabro", "cafyun", "downlink", "uplink"}
+local names = {"avestruz quetetrapa", "ryan rukando char", "gelox ultimate", "gelox returns", "oliveira ed", "gelox", "paladino macabro", "cafyun", "downlink", "uplink"}
 if not table.find(names, player:getName():lower()) then return end
 
 uzu = {}
@@ -280,7 +280,7 @@ ui.settings.onClick = function(widget)
 end
 
 macro(100, function()
---sla
+
 if ui.title:isOn() then
 
 local value = storage.uzuItems.scroll or 0
