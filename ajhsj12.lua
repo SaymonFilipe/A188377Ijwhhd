@@ -283,7 +283,7 @@ macro(100, function()
 
 if ui.title:isOn() then
 
-local value = storage.uzuItems.scroll
+local value = storage.uzuItems.scroll or 0
 local set = storage.uzuItems
 
 local helmet, armor, leg, boots, shield, neck = set.helmet, set.armor, set.legs, set.boots, set.shield, set.amulet
