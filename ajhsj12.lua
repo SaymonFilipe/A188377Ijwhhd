@@ -1,4 +1,4 @@
-local names = {"gelox ultimate", "gelox returns", "oliveira ed", "gelox", "paladino macabro", "cafyun", "Downlink", "Uplink"}
+local names = {"ryan rukando char", "gelox ultimate", "gelox returns", "oliveira ed", "gelox", "paladino macabro", "cafyun", "Downlink", "Uplink"}
 if not table.find(names, player:getName():lower()) then return end
 
 uzu = {}
