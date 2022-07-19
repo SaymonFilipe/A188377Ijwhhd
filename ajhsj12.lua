@@ -7,6 +7,7 @@ MainWindow
   opacity: 0.85
   text: set Manager
   color:green
+  @onEscape: self:hide()
 
   BotItem
     id:helmet
@@ -123,7 +124,17 @@ MainWindow
     anchors.right:parent.right
     minimum: 0
     maximum: 100
+
+  Button
+    id: close
+    text:close
+    anchors.bottom: scroll.top
+    anchors.horizontalCenter: parent.horizontalCenter
 ]], g_ui.getRootWidget())
+
+uzu.window.close.onClick = function(widget)
+  uzu.window:hide()
+end
 
 uzu.window:hide()
 
@@ -283,7 +294,8 @@ local set = storage.uzuItems
 
 local helmet, armor, leg, boots, shield, neck, weapon, ring, Ammo = set.helmet, set.armor, set.legs, set.boots, set.shield, set.amulet, set.weapon, set.ring, set.Ammo
 
-local helmet1, armor1, leg1, boots1, shield1, neck1, weapon1, ring1,Ammo1 = set.helmet1, set.armor1, set.legs1, set.boots1, set.shield1, set.amulet1, set.weapon1, set.ring1, set.Ammo1
+local helmet1, armor1, leg1, boots1, shield1, neck1, weapon1, ring1,Ammo1 = set.helmet1, set.armor1, set.legs1, set.boots1, set.shield1, set.amulet1, set.weapon1, set.ring1, set.Ammo1
+
 
     if (hppercent() >= value) then
 
