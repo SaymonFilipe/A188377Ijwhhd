@@ -139,33 +139,19 @@ end
 
 uzu.window:hide()
 
-
 if type(storage.uzuItems) ~= "table" then
-
     storage.uzuItems = {}
-
 end
-
-
 
 uzu.window.helmet.onItemChange = function(widget)
-
     storage.uzuItems.helmet = widget:getItemId()
-
 end
-
 uzu.window.helmet:setItemId(storage.uzuItems.helmet)
 
-
-
 uzu.window.helmet1.onItemChange = function(widget)
-
     storage.uzuItems.helmet1 = widget:getItemId()
-
 end
-
 uzu.window.helmet1:setItemId(storage.uzuItems.helmet1)
-
 
 uzu.window.armor.onItemChange = function(widget)
     storage.uzuItems.armor = widget:getItemId()
