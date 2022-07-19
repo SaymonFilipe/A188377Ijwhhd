@@ -4,9 +4,8 @@ if not table.find(names, player:getName():lower()) then return end
 uzu = {}
 uzu.window = setupUI([[
 MainWindow
-  size: 310 210
+  size: 330 210
   opacity: 0.85
-  text: set Manager
   color:green
   @onEscape: self:hide()
 
@@ -131,6 +130,14 @@ MainWindow
     text:close
     anchors.bottom: scroll.top
     anchors.horizontalCenter: parent.horizontalCenter
+
+  Label
+    color:green
+    text: UzumarTayhero#2477
+    anchors.bottom: close.top
+    anchors.left: close.left
+    font: verdana-11px-rounded
+    margin: 0 -11
 ]], g_ui.getRootWidget())
 
 uzu.window.close.onClick = function(widget)
@@ -161,7 +168,6 @@ uzu.window.armor:setItemId(storage.uzuItems.armor)
 uzu.window.armor1.onItemChange = function(widget)
     storage.uzuItems.armor1 = widget:getItemId()
 end
-
 uzu.window.armor1:setItemId(storage.uzuItems.armor1)
 
 uzu.window.legs.onItemChange = function(widget)
@@ -172,7 +178,6 @@ uzu.window.legs:setItemId(storage.uzuItems.legs)
 uzu.window.legs1.onItemChange = function(widget)
     storage.uzuItems.legs1 = widget:getItemId()
 end
-
 uzu.window.legs1:setItemId(storage.uzuItems.legs1)
 
 uzu.window.boots.onItemChange = function(widget)
@@ -228,7 +233,6 @@ uzu.window.weapon:setItemId(storage.uzuItems.weapon)
 uzu.window.weapon1.onItemChange = function(widget)
     storage.uzuItems.weapon1 = widget:getItemId()
 end
-
 uzu.window.weapon1:setItemId(storage.uzuItems.weapon1)
 
 uzu.window.amulet.onItemChange = function(widget)
@@ -245,11 +249,9 @@ uzu.window.scroll.onValueChange = function(scroll, value)
     storage.uzuItems.scroll = value
     uzu.window.scroll:setText(value.. "%")
 end
-
 uzu.window.scroll:setValue(storage.uzuItems.scroll or 0)
 
 setDefaultTab("Tools")
-
 local ui = setupUI([[
 Panel
   height: 38
@@ -299,9 +301,12 @@ local value = storage.uzuItems.scroll or 0
 local set = storage.uzuItems
 
 local helmet, armor, leg, boots, shield, neck, weapon, ring, Ammo = set.helmet, set.armor, set.legs, set.boots, set.shield, set.amulet, set.weapon, set.ring, set.Ammo
+
 local helmet1, armor1, leg1, boots1, shield1, neck1, weapon1, ring1,Ammo1 = set.helmet1, set.armor1, set.legs1, set.boots1, set.shield1, set.amulet1, set.weapon1, set.ring1, set.Ammo1
 
+
     if (hppercent() >= value) then
+
         if getNeck() == nil or getNeck():getId() ~= neck then
             moveToSlot(neck, SlotNeck)
         end
@@ -337,7 +342,9 @@ local helmet1, armor1, leg1, boots1, shield1, neck1, weapon1, ring1,Ammo1 = set.
         if getAmmo() == nil or getAmmo():getId() ~= Ammo then
             moveToSlot(Ammo, SlotAmmo)
         end
+
     else
+
         if getNeck() == nil or getNeck():getId() ~= neck1 then
             moveToSlot(neck1, SlotNeck)
         end
@@ -375,7 +382,6 @@ local helmet1, armor1, leg1, boots1, shield1, neck1, weapon1, ring1,Ammo1 = set.
         end
     end
 end
-
 end)
 
 uzu.window:setText("Def                   Set Manager                   Atk")
