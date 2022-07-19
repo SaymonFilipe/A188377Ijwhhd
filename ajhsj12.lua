@@ -133,7 +133,7 @@ MainWindow
 
   Label
     color:green
-    text: UzumarTayhero#2477
+    text: UzumarTayhero#2677
     anchors.bottom: close.top
     anchors.left: close.left
     font: verdana-11px-rounded
